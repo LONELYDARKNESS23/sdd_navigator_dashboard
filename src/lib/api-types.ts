@@ -2,7 +2,7 @@ export type RequirementType = "FR" | "AR";
 
 export type RequirementStatus = "covered" | "partial" | "missing";
 
-export type TaskStatus = "todo" | "in_progress" | "done";
+export type TaskStatus = "open" | "in_progress" | "done";
 
 export type ScanState = "idle" | "running" | "completed" | "failed";
 

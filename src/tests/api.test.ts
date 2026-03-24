@@ -143,7 +143,7 @@ describe("mock API layer", () => {
     expect(orphanTasks).toHaveLength(1);
     expect(orphanTasks[0]).toMatchObject({
       id: "TASK-206",
-      status: "todo",
+      status: "open",
       requirementId: null,
     });
   });

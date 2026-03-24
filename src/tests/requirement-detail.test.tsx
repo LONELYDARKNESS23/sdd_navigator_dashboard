@@ -23,7 +23,8 @@ describe("RequirementDetail", () => {
     expect(screen.getByText("TASK-204")).toBeInTheDocument();
     expect(screen.getByText(/Assignee S. Lopez/i)).toBeInTheDocument();
     expect(screen.getByText("ANN-207")).toBeInTheDocument();
-    expect(screen.getByText("src/lib/api.ts:29")).toBeInTheDocument();
+    expect(screen.getByText("File src/lib/api.ts")).toBeInTheDocument();
+    expect(screen.getByText("Line 29")).toBeInTheDocument();
     expect(
       screen.getByText(/getRequirement\(id: string\): Promise<RequirementDetail \| null>/i),
     ).toBeInTheDocument();

@@ -6,7 +6,7 @@ const badgeClasses: Record<string, string> = {
   covered: "status-badge--success",
   in_progress: "status-badge--info",
   done: "status-badge--success",
-  todo: "status-badge--neutral",
+  open: "status-badge--neutral",
   partial: "status-badge--warning",
   missing: "status-badge--danger",
   impl: "status-badge--info",
@@ -31,7 +31,7 @@ function formatValue(value: string): string {
 
 export default function StatusBadge({ value }: StatusBadgeProps) {
   const normalizedValue = normalizeValue(value);
-  const className = badgeClasses[normalizedValue] ?? badgeClasses.todo;
+  const className = badgeClasses[normalizedValue] ?? badgeClasses.open;
 
   return (
     <span className={`status-badge ${className}`}>

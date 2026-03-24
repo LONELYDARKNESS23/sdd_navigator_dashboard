@@ -24,7 +24,7 @@ describe("TasksPanel", () => {
     const user = userEvent.setup();
 
     render(<TasksPanel tasks={cloneFixture(taskFixtures)} />);
-    await user.click(screen.getByRole("button", { name: "todo" }));
+    await user.click(screen.getByRole("button", { name: "open" }));
 
     expect(screen.getByText("TASK-206")).toBeInTheDocument();
     expect(screen.queryByText("TASK-201")).not.toBeInTheDocument();

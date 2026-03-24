@@ -135,9 +135,12 @@ export default function RequirementDetail({ requirement }: RequirementDetailProp
                     Updated {formatDateTime(annotation.updatedAt)}
                   </span>
                 </div>
-                <p className="app-text-secondary mt-3 font-mono text-xs">
-                  {annotation.filePath}:{annotation.line}
-                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+                  <p className="app-text-secondary font-mono">
+                    File {annotation.filePath}
+                  </p>
+                  <p className="app-text-muted">Line {annotation.line}</p>
+                </div>
                 {/* @req AR-SEC-001 */}
                 <pre className="app-panel-soft mt-3 overflow-x-auto rounded-xl p-3 text-xs leading-5">
                   <code>{annotation.snippet}</code>

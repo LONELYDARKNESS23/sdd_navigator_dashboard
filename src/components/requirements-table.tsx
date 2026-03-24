@@ -92,7 +92,7 @@ export default function RequirementsTable({
 
   const activeLabels = [
     ...query.types.map((type) => `Type: ${type}`),
-    ...query.statuses.map((status) => `Coverage: ${formatLabel(status)}`),
+    ...query.statuses.map((status) => `Status: ${formatLabel(status)}`),
     `Sort: ${query.sortBy === "updatedAt" ? "updated date" : "requirement id"} ${query.sortOrder}`,
   ];
 
@@ -196,7 +196,7 @@ export default function RequirementsTable({
 
             <div className="space-y-2">
               <span className="app-text-muted block text-xs uppercase tracking-[0.2em]">
-                Coverage Status
+                Status
               </span>
               <div className="flex flex-wrap gap-2">
                 <button
@@ -305,8 +305,8 @@ export default function RequirementsTable({
               </th>
               <th className="py-3 pr-4 font-medium">Title</th>
               <th className="py-3 pr-4 font-medium">Type</th>
-              <th className="py-3 font-medium">Coverage</th>
-              <th className="py-3 pl-4 font-medium">Updated</th>
+              <th className="py-3 font-medium">Status</th>
+              <th className="py-3 pl-4 font-medium">Updated At</th>
             </tr>
           </thead>
           <tbody>

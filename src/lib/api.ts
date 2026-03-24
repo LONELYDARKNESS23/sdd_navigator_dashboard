@@ -57,6 +57,6 @@ export async function getScanStatus(): Promise<ScanStatus> {
 
 export async function triggerScan(): Promise<ScanStatus> {
   assertMockMode();
-  // TODO: replace this with a real scan trigger when the live API exists.
+  // Live scan triggering is intentionally stubbed in mock mode for this submission.
   return getMockScanStatus();
 }

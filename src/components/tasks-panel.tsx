@@ -15,7 +15,7 @@ type TaskFilter = "all" | Task["status"];
 
 const taskFilterOptions: readonly TaskFilter[] = [
   "all",
-  "todo",
+  "open",
   "in_progress",
   "done",
 ];

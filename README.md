@@ -26,7 +26,7 @@ Deployed app: `https://sddnavigatordashboard.vercel.app`
   - last scan timestamp
 - Requirements table with:
   - links to `/requirements/[id]`
-  - type and coverage filters
+  - type and status filters
   - URL-synced table state
   - sorting by requirement ID and last updated timestamp
 - Requirement detail page with:
@@ -98,6 +98,7 @@ npm run dev
 npm run build
 npm run start
 npm run lint
+npm run typecheck
 npm run test
 npm run test:run
 npm run check:coverage
@@ -121,6 +122,12 @@ Run linting:
 
 ```bash
 npm run lint
+```
+
+Run the TypeScript check:
+
+```bash
+npm run typecheck
 ```
 
 Run the production build:
@@ -192,6 +199,7 @@ PROCESS.md             AI-assisted implementation notes
 - [x] `npm run test:run` passes locally
 - [x] `npm run check:coverage` passes locally
 - [x] `npm run lint` passes locally
+- [x] `npm run typecheck` passes locally
 - [x] `npm run build` passes locally
-- [ ] Confirm the GitHub repository is public at submission time
+- [x] GitHub repository is public
 - [x] Deployed application URL is included above

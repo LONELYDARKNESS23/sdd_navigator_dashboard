@@ -72,7 +72,7 @@ describe("RequirementsTable", () => {
       screen.getByRole("heading", { name: "Requirements Table" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Requirement Type")).toBeInTheDocument();
-    expect(screen.getByText("Coverage Status")).toBeInTheDocument();
+    expect(screen.getAllByText("Status")).not.toHaveLength(0);
     expect(screen.getByText("Sort by")).toBeInTheDocument();
     expect(screen.getByText("Order")).toBeInTheDocument();
     expect(screen.getByText("Parse requirements from the source YAML file")).toBeInTheDocument();

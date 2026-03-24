@@ -43,7 +43,7 @@
     "id": "TASK-206",
     "requirementId": null,
     "title": "Triage legacy TODO comments without requirement mapping",
-    "status": "todo",
+    "status": "open",
     "assignee": null,
     "updatedAt": "2026-03-24T05:25:00.000Z"
   }

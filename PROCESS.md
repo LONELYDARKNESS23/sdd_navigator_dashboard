@@ -1,133 +1,80 @@
 # Process Notes
 
-## Scope and Approach
+## Tools Used
 
-This repository was built as the ForEach Partners Next.js Frontend Engineer (AI-First) take-home. The goal was to deliver a small, inspectable SDD dashboard with a clear data model, traceability hooks, and a testable UI, without turning the submission into a large framework exercise.
+- GPT-based coding assistance for planning, draft code generation, refactoring support, and review prompts
+- PowerShell for local inspection, validation, and Git operations
+- Next.js App Router with TypeScript and Tailwind CSS
+- Vitest with Testing Library for unit and component coverage
+- `scripts/check-coverage.ts` for lightweight requirement traceability validation
+- GitHub for repository hosting and Vercel for deployment
 
-The work was broken into bounded steps so the app stayed runnable after each change:
+## Conversation Log
 
-1. create the Next.js skeleton and basic folders
-2. add a local mock dataset and a typed API layer
-3. build the dashboard, requirement detail route, and supporting panels
-4. add filtering, sorting, and URL-synced state to the requirements table
-5. align the domain model with the assignment language
-6. add tests and a requirement traceability script
-7. polish the themes and submission documentation
+Exact timestamps and a verbatim transcript were not preserved as a formal artifact. The summary below reflects the actual sequence of work from the repository history and implementation steps.
 
-## Translating the Specification Into Implementation Tasks
+1. Set up the initial Next.js project skeleton and placeholder dashboard structure.
+2. Added local mock JSON data and a typed mock/API access layer.
+3. Implemented the dashboard summary, requirements table, detail page, tasks panel, and orphan panel.
+4. Added requirements table filtering, sorting, and URL synchronization.
+5. Polished loading, empty, error, and theme states.
+6. Realigned the domain model to the official requirement language: `FR` / `AR`, `covered` / `partial` / `missing`, linked annotations, linked tasks, and orphan records.
+7. Added Vitest and Testing Library coverage for the data layer and key UI components.
+8. Implemented `scripts/check-coverage.ts` and linked `@req` comments back to `requirements.yaml`.
+9. Finalized README/PROCESS documentation, repository metadata, and submission readiness details.
 
-The assignment was first reduced to a few stable problem areas:
+## Timeline
 
-- requirement and evidence domain model
-- mock data loading and API boundaries
-- dashboard summary and requirement list
-- requirement detail rendering
-- task/orphan traceability surfaces
-- testing and traceability validation
+Exact wall-clock timestamps were not retained. This timeline is an honest relative sequence of the work:
 
-That decomposition made it easier to change one layer at a time without losing working behavior. It also helped when the early placeholder model had to be replaced with the final `FR` / `AR` requirement types and `covered` / `partial` / `missing` coverage states.
+1. Foundation: project skeleton, folders, placeholder components, and minimal routing.
+2. Data layer: mock dataset, strict types, server-side loaders, and API-mode handling.
+3. Feature pass: dashboard summary, requirements list, requirement detail, tasks, and orphan views.
+4. Interaction pass: filters, sorting, URL sync, and detail-page context preservation.
+5. Polish pass: empty states, error handling, loading states, and theme support.
+6. Compliance pass: domain alignment, requirement traceability, tests, and submission documents.
 
-## How AI Was Used
+## Key Decisions
 
-AI assistance was used as a development accelerator, not as an unreviewed code dump.
+- Keep the app mock-data-first so the submission remains deterministic and easy to review.
+- Preserve a simple typed API boundary so the live API path can be implemented later without reshaping the UI.
+- Keep requirements filtering and sorting local instead of introducing remote state or a heavier client data layer.
+- Use comment-based `@req` traceability because it is transparent, easy to inspect, and sufficient for a take-home submission.
+- Prefer focused unit/component tests over a larger browser automation setup for this scope.
 
-It was useful for:
+## What the Developer Controlled
 
-- generating the initial file and route skeleton
-- drafting first-pass TypeScript types, mock loaders, and API stubs
-- iterating quickly on component structure
-- expanding repetitive tests once the UI stabilized
-- drafting the requirement traceability script
-- helping compare regressions after styling and theme refactors
+- Broke the assignment into bounded implementation steps instead of attempting the whole UI at once.
+- Reviewed and simplified generated code before accepting it.
+- Chose the final data model, naming, and UI wording to match the official task more closely.
+- Decided which regressions needed fixes and which non-essential ideas were left out.
+- Ran local validation through `npm run typecheck`, `npm run test:run`, `npm run check:coverage`, `npm run lint`, and `npm run build`.
 
-The working pattern was consistent:
+## Course Corrections
 
-1. inspect the current codebase
-2. choose one bounded change
-3. generate or edit code for that change
-4. review and simplify the result manually
-5. run validation commands
-6. fix regressions before moving on
+- Theme refactors initially flattened the UI too much; semantic surfaces, borders, and hover states were strengthened without redesigning the layout.
+- Early placeholder requirement IDs and statuses were replaced with the final assignment-aligned domain model.
+- Task status wording was aligned from `todo` to `open` for closer compliance with the official wording.
+- Requirement detail rendering was tightened so annotation file path and line number are both explicit.
+- Requirements table wording was adjusted so the requirement status column and filters read as `Status` instead of `Coverage`.
+- Documentation was reworked from generic notes into submission-oriented README and PROCESS files.
 
-## Review, Validation, and Manual Cleanup
+## Self-Assessment
 
-Generated code was treated as a draft that needed manual review.
+Strengths of the final submission:
 
-The main checks were:
+- The codebase stays small, explicit, and strict-TypeScript-friendly.
+- The implemented feature set aligns closely with the official task without unnecessary abstraction.
+- The mock dataset, tests, and traceability script are internally consistent.
+- The repository is ready to review locally or via the deployed app.
 
-- does the implementation still match the take-home language
-- are types explicit and strict-friendly
-- does the change fit the existing structure
-- did the UI or behavior regress
-- do tests still describe real behavior rather than stale assumptions
+Known limits:
 
-Validation relied on:
-
-- `npm run test:run`
-- `npm run check:coverage`
-- `npm run lint`
-- `npm run build`
-
-Manual cleanup was especially important in a few places:
-
-- the theme refactor initially weakened contrast and card hierarchy
-- the mock domain had to be rewritten to match the official IDs and coverage states
-- some test assertions had to be updated after labels and filtering semantics changed
-- the traceability script needed a real implementation and a safer runtime command
-- documentation had to be tightened so it matched the actual codebase and deliverables
-
-## Regressions and How They Were Fixed
-
-The most visible regressions came from theme work. Dark/light switching functioned, but panels, cards, and metadata blocks became too flat. The fix was not a redesign; it was a targeted pass on semantic surfaces, borders, and hover states so the existing layout regained hierarchy in both themes.
-
-Another regression area was traceability semantics. Early placeholder requirements and statuses no longer matched the assignment once the domain was aligned. That required updating the mock dataset, UI labels, tests, and `@req` trace comments together so the repository stayed internally consistent.
-
-## Testing and Traceability
-
-Testing was added in layers rather than all at once.
-
-The current suite covers:
-
-- mock data and API happy paths
-- malformed file and empty file edge cases
-- coverage metric edge cases
-- dashboard summary rendering
-- requirements table rendering, filtering, sorting, and empty state behavior
-- requirement detail rendering
-- tasks panel behavior
-- orphan panel behavior
-- traceability script behavior
-
-Traceability is handled by `scripts/check-coverage.ts`, which reads `requirements.yaml`, scans the repository for `@req` comments, and fails if any requirement lacks references. That does not replace functional testing, but it gives a lightweight, inspectable link between the listed requirements and the code/tests that address them.
-
-## Tradeoffs
-
-The main tradeoffs were deliberate:
-
-- local mock data was prioritized over a live backend to keep the submission deterministic
-- data filtering and sorting stay local instead of adding a heavier client data layer
-- traceability is comment-based rather than inferred automatically
-- tests focus on unit/component behavior instead of full browser automation
-
-These choices keep the repository small, readable, and aligned with a take-home review workflow.
-
-## What I Would Improve Next
-
-With more time, the next steps would be:
-
-- implement the live API path instead of leaving it as a stub
-- add a typed validation layer for mock JSON/YAML inputs
-- add browser-level coverage for the main dashboard and detail flow
-- extend traceability reporting to distinguish implementation references from test references
-- add deployment-specific documentation once the final hosted URL is available
-
-## Remaining Manual Inputs
+- Live API mode remains a stub.
+- Traceability validation proves references, not full correctness.
+- There are no end-to-end browser tests.
 
 Final public URLs:
 
 - repository: `https://github.com/LONELYDARKNESS23/sdd_navigator_dashboard`
 - deployed application: `https://sddnavigatordashboard.vercel.app`
-
-The codebase is submission-ready aside from values that only exist outside the repository:
-
-- any final submission note required by the take-home instructions
