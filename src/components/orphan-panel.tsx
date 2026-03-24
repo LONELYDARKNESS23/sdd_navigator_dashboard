@@ -41,7 +41,7 @@ export default function OrphanPanel({
         />
       ) : (
         <div className="space-y-4">
-          {/* @req FR-REPORT-001 */}
+          {/* @req FR-REPORT-001 current scope surfaces orphan records for review, but export remains out of scope. */}
           <details className="app-card rounded-xl p-4" open>
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
               <h3 className="app-title text-sm font-semibold uppercase tracking-[0.16em]">

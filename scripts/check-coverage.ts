@@ -71,6 +71,7 @@ async function pathExists(filePath: string): Promise<boolean> {
 }
 
 export async function loadRequirementIds(projectRoot: string): Promise<string[]> {
+  // @req FR-SCAN-001
   const filePath = path.join(projectRoot, REQUIREMENTS_FILE);
   const contents = await readFile(filePath, "utf8");
   const parsed = parse(contents) as unknown;
@@ -151,6 +152,7 @@ export async function buildCoverageMap(
   projectRoot: string,
   requirementIds: readonly string[],
 ): Promise<Map<string, TraceLocation[]>> {
+  // @req FR-SCAN-002
   const requirementIdSet = new Set(requirementIds);
   const searchFiles = await collectSearchFiles(projectRoot);
   const coverageMap = new Map<string, TraceLocation[]>();

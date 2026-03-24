@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "check:coverage": "node --experimental-strip-types scripts/check-coverage.ts",
+    "check:coverage": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types scripts/check-coverage.ts",
     "test": "vitest",
     "test:run": "vitest run"
   },
