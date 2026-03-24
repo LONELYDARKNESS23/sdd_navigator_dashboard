@@ -1,0 +1,74 @@
+[
+  {
+    "id": "FR-SCAN-001",
+    "title": "Parse requirements from the source YAML file",
+    "description": "The scan workflow shall parse the source requirements YAML and normalize each entry for dashboard use.",
+    "type": "FR",
+    "status": "covered",
+    "createdAt": "2026-03-01T09:00:00.000Z",
+    "updatedAt": "2026-03-20T09:30:00.000Z"
+  },
+  {
+    "id": "FR-SCAN-002",
+    "title": "Extract implementation and test annotations from repository files",
+    "description": "The scanner shall collect implementation and test annotations from local files so evidence can be linked back to each requirement.",
+    "type": "FR",
+    "status": "covered",
+    "createdAt": "2026-03-02T10:15:00.000Z",
+    "updatedAt": "2026-03-20T13:45:00.000Z"
+  },
+  {
+    "id": "FR-API-001",
+    "title": "Expose summary coverage metrics for the dashboard",
+    "description": "The API layer shall return total requirements, coverage percentages, orphan counts, and scan timestamps for the dashboard summary.",
+    "type": "FR",
+    "status": "covered",
+    "createdAt": "2026-03-03T08:30:00.000Z",
+    "updatedAt": "2026-03-21T11:10:00.000Z"
+  },
+  {
+    "id": "FR-API-002",
+    "title": "Expose requirement list and detail payloads",
+    "description": "The API layer shall return requirement list and detail payloads with linked annotations and tasks for traceability review.",
+    "type": "FR",
+    "status": "covered",
+    "createdAt": "2026-03-04T09:20:00.000Z",
+    "updatedAt": "2026-03-21T16:20:00.000Z"
+  },
+  {
+    "id": "FR-API-003",
+    "title": "Expose tasks and orphan traceability datasets",
+    "description": "The API layer shall return tasks, linked annotations, orphan annotations, and orphan tasks for the dashboard panels.",
+    "type": "FR",
+    "status": "covered",
+    "createdAt": "2026-03-05T12:00:00.000Z",
+    "updatedAt": "2026-03-22T09:40:00.000Z"
+  },
+  {
+    "id": "AR-PERF-001",
+    "title": "Keep dashboard load time within the mock performance budget",
+    "description": "The dashboard should render the mock dataset within the assignment performance budget and avoid unnecessary client churn.",
+    "type": "AR",
+    "status": "partial",
+    "createdAt": "2026-03-06T14:10:00.000Z",
+    "updatedAt": "2026-03-23T08:40:00.000Z"
+  },
+  {
+    "id": "AR-SEC-001",
+    "title": "Sanitize rendered snippets and avoid leaking sensitive paths",
+    "description": "The dashboard should only render safe code snippets and avoid exposing sensitive repository details in traceability evidence.",
+    "type": "AR",
+    "status": "partial",
+    "createdAt": "2026-03-07T10:45:00.000Z",
+    "updatedAt": "2026-03-23T12:10:00.000Z"
+  },
+  {
+    "id": "FR-REPORT-001",
+    "title": "Export an orphan traceability report",
+    "description": "The dashboard shall provide an export-ready orphan traceability report for assignment review and follow-up.",
+    "type": "FR",
+    "status": "missing",
+    "createdAt": "2026-03-08T11:30:00.000Z",
+    "updatedAt": "2026-03-24T05:50:00.000Z"
+  }
+]

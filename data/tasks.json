@@ -1,0 +1,50 @@
+[
+  {
+    "id": "TASK-201",
+    "requirementId": "FR-SCAN-001",
+    "title": "Normalize YAML requirement records during mock scan",
+    "status": "done",
+    "assignee": "A. Patel",
+    "updatedAt": "2026-03-21T12:00:00.000Z"
+  },
+  {
+    "id": "TASK-202",
+    "requirementId": "FR-SCAN-002",
+    "title": "Collect implementation and test annotations from local files",
+    "status": "done",
+    "assignee": "J. Rivera",
+    "updatedAt": "2026-03-21T15:30:00.000Z"
+  },
+  {
+    "id": "TASK-203",
+    "requirementId": "FR-API-001",
+    "title": "Return summary rollup from the mock API layer",
+    "status": "done",
+    "assignee": "N. Kim",
+    "updatedAt": "2026-03-22T10:20:00.000Z"
+  },
+  {
+    "id": "TASK-204",
+    "requirementId": "FR-API-002",
+    "title": "Assemble requirement detail payload with linked evidence",
+    "status": "in_progress",
+    "assignee": "S. Lopez",
+    "updatedAt": "2026-03-22T16:10:00.000Z"
+  },
+  {
+    "id": "TASK-205",
+    "requirementId": "FR-API-003",
+    "title": "Return orphan datasets for dashboard side panels",
+    "status": "in_progress",
+    "assignee": "M. Shah",
+    "updatedAt": "2026-03-23T09:25:00.000Z"
+  },
+  {
+    "id": "TASK-206",
+    "requirementId": null,
+    "title": "Triage legacy TODO comments without requirement mapping",
+    "status": "todo",
+    "assignee": null,
+    "updatedAt": "2026-03-24T05:25:00.000Z"
+  }
+]

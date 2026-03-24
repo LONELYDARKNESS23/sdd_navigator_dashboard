@@ -1,36 +1,214 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SDD Navigator Dashboard
+
+SDD Navigator Dashboard is a Next.js take-home project for the ForEach Partners assignment. It presents a small traceability dashboard for functional requirements (`FR`) and architectural requirements (`AR`), using a local mock dataset to show coverage status, linked annotations, linked tasks, and orphan records.
+
+Live demo: `TODO: add deployed URL after deployment`
+
+Repository: `TODO: add repository URL`
+
+## Tech Stack
+
+- Next.js 16 with App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Vitest + Testing Library
+- Local JSON mock data in `data/`
+- YAML parsing with `yaml`
+
+## Features Implemented
+
+- Summary dashboard with:
+  - total requirements
+  - FR / AR breakdown
+  - covered / partial / missing breakdown
+  - overall coverage percentage
+  - orphan counts
+  - latest scan timestamp
+- Requirements table with:
+  - ID and updated date sorting
+  - type and coverage filters
+  - URL-synced table state
+  - links to requirement detail pages
+- Requirement detail view with:
+  - metadata
+  - description
+  - linked annotations
+  - linked tasks
+  - coverage assessment label
+- Work items panel with simple task status filtering
+- Orphan traceability panel for orphan annotations and orphan tasks
+- Dark and light theme support with persisted selection
+- Unit/component tests with Vitest and Testing Library
+- Traceability validation via `scripts/check-coverage.ts`
+
+## Mock Data / API Mode
+
+The app runs in mock mode by default.
+
+- Mock mode reads local JSON files from `data/`
+- API mode switches to `live` only if `NEXT_PUBLIC_API_URL` is provided
+- Live API mode is a placeholder structure only; it is not implemented yet
+
+Current mock dataset:
+
+- 8 requirements
+- 16 annotations
+- 6 tasks
+- 2 orphan annotations
+- 1 orphan task
+- 62.5% overall coverage
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites:
+
+- Node.js 24.x is recommended
+- npm
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Run the production server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Development:
 
-## Deploy on Vercel
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Build:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```
+
+Start production build:
+
+```bash
+npm run start
+```
+
+Lint:
+
+```bash
+npm run lint
+```
+
+Run tests in watch mode:
+
+```bash
+npm run test
+```
+
+Run tests once:
+
+```bash
+npm run test:run
+```
+
+Run requirement traceability check:
+
+```bash
+npm run check:coverage
+```
+
+## Testing
+
+The project uses Vitest with `jsdom` and Testing Library.
+
+Current test coverage includes:
+
+- data-layer happy paths
+- data-layer edge cases for malformed files and coverage variants
+- summary panel rendering
+- requirements table filtering and sorting behavior
+- requirement detail rendering
+- tasks panel filtering
+- orphan panel rendering
+- traceability check script behavior
+
+Run the full suite:
+
+```bash
+npm run test:run
+```
+
+## Requirement Traceability / check-coverage
+
+The repository includes a simple traceability validator:
+
+```bash
+npm run check:coverage
+```
+
+What it does:
+
+- reads `requirements.yaml`
+- extracts requirement IDs
+- scans `src/`, `scripts/`, and optional markdown files for `@req` comments
+- reports which files reference each requirement
+- exits with code `1` if any requirement is uncovered
+
+Supported trace comment format:
+
+```ts
+// @req FR-SCAN-001
+// @req AR-SEC-001
+```
+
+## Project Structure Overview
+
+```text
+data/                  Local mock JSON dataset
+scripts/               Utility scripts, including check-coverage
+src/app/               App Router pages and layout
+src/components/        UI components
+src/lib/               API layer, types, mock data loaders, theme helpers
+src/tests/             Vitest test suite and test helpers
+requirements.yaml      Source requirement list used for traceability checks
+```
+
+## Notes / Assumptions
+
+- The project is intentionally built around a local mock dataset first
+- The live API shape is represented in code structure, but not implemented
+- The UI favors readable, explicit components over additional abstraction
+- Table state is URL-synced on the dashboard page
+- Theme preference is stored locally in the browser
+
+## Limitations / Future Improvements
+
+- Live API mode still needs implementation
+- No e2e coverage has been added
+- The current dataset is static and not generated by a real scan pipeline
+- Traceability checking is comment-based and does not inspect runtime behavior
+- Additional export/reporting workflows could be added if the assignment required them
+
+## Deployment Placeholders
+
+- Live demo URL: `TODO`
+- Repository URL: `TODO`

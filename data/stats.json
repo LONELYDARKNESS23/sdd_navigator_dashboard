@@ -1,0 +1,18 @@
+{
+  "totalRequirements": 8,
+  "requirementsByType": {
+    "FR": 6,
+    "AR": 2
+  },
+  "requirementsByStatus": {
+    "covered": 5,
+    "partial": 2,
+    "missing": 1
+  },
+  "totalTasks": 6,
+  "totalAnnotations": 16,
+  "orphanAnnotations": 2,
+  "orphanTasks": 1,
+  "coveragePercent": 62.5,
+  "lastScanAt": "2026-03-24T06:45:00.000Z"
+}

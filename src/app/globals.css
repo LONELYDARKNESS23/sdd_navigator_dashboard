@@ -1,26 +1,394 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090b0f;
+  --background-elevated: #0d1116;
+  --surface: #13181e;
+  --surface-secondary: #191f26;
+  --surface-tertiary: #202832;
+  --surface-elevated: #1b222c;
+  --surface-toolbar: #151b22;
+  --surface-table-header: #181f27;
+  --surface-ghost: rgba(255, 255, 255, 0.04);
+  --border: #2d353f;
+  --border-strong: #434f5d;
+  --divider: #252d37;
+  --text-primary: #eef2f7;
+  --text-secondary: #c9d1dd;
+  --text-muted: #97a3b4;
+  --text-subtle: #778293;
+  --link: #f3f6fb;
+  --link-hover: #dbe7f6;
+  --focus-ring: #93c5fd;
+  --focus-shadow: rgba(147, 197, 253, 0.18);
+  --shadow-rgb: 4, 6, 10;
+  --page-highlight: rgba(255, 255, 255, 0.022);
+  --input-background: #10161d;
+  --row-hover: rgba(255, 255, 255, 0.045);
+  --panel-shadow:
+    0 18px 38px rgba(var(--shadow-rgb), 0.14),
+    0 2px 6px rgba(var(--shadow-rgb), 0.06);
+  --panel-soft-shadow: 0 10px 22px rgba(var(--shadow-rgb), 0.1);
+  --card-shadow: 0 10px 22px rgba(var(--shadow-rgb), 0.1);
+  --card-strong-shadow: 0 14px 28px rgba(var(--shadow-rgb), 0.12);
+  --table-shadow: 0 12px 26px rgba(var(--shadow-rgb), 0.1);
+  --button-shadow: 0 6px 16px rgba(var(--shadow-rgb), 0.09);
+  --empty-shadow: 0 8px 18px rgba(var(--shadow-rgb), 0.07);
+  --danger-bg: rgba(127, 29, 29, 0.26);
+  --danger-border: #7f1d1d;
+  --danger-text: #fecaca;
+  --badge-neutral-bg: #1b212b;
+  --badge-neutral-border: #3a4656;
+  --badge-neutral-text: #d6dde7;
+  --badge-info-bg: rgba(37, 99, 235, 0.18);
+  --badge-info-border: #335ea8;
+  --badge-info-text: #bfdbfe;
+  --badge-success-bg: rgba(6, 78, 59, 0.24);
+  --badge-success-border: #1f6c57;
+  --badge-success-text: #8ee3c4;
+  --badge-warning-bg: rgba(146, 64, 14, 0.26);
+  --badge-warning-border: #a05a1e;
+  --badge-warning-text: #f7d27a;
+  --badge-danger-bg: rgba(127, 29, 29, 0.26);
+  --badge-danger-border: #8f303f;
+  --badge-danger-text: #f8b4bf;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.light {
+  --background: #e7edf4;
+  --background-elevated: #f0f4f8;
+  --surface: #fbfdff;
+  --surface-secondary: #f3f6fa;
+  --surface-tertiary: #ebf0f5;
+  --surface-elevated: #ffffff;
+  --surface-toolbar: #edf2f7;
+  --surface-table-header: #e6ecf3;
+  --surface-ghost: rgba(15, 23, 42, 0.06);
+  --border: #cad5e2;
+  --border-strong: #acbacb;
+  --divider: #d4dde8;
+  --text-primary: #0c1523;
+  --text-secondary: #2d3b4f;
+  --text-muted: #536276;
+  --text-subtle: #76849a;
+  --link: #0f172a;
+  --link-hover: #1d4ed8;
+  --focus-ring: #2563eb;
+  --focus-shadow: rgba(37, 99, 235, 0.14);
+  --shadow-rgb: 15, 23, 42;
+  --page-highlight: rgba(148, 163, 184, 0.09);
+  --input-background: #ffffff;
+  --row-hover: rgba(15, 23, 42, 0.055);
+  --panel-shadow:
+    0 14px 28px rgba(var(--shadow-rgb), 0.08),
+    0 2px 5px rgba(var(--shadow-rgb), 0.035);
+  --panel-soft-shadow: 0 8px 18px rgba(var(--shadow-rgb), 0.06);
+  --card-shadow: 0 10px 20px rgba(var(--shadow-rgb), 0.06);
+  --card-strong-shadow: 0 12px 24px rgba(var(--shadow-rgb), 0.07);
+  --table-shadow: 0 12px 22px rgba(var(--shadow-rgb), 0.065);
+  --button-shadow: 0 6px 14px rgba(var(--shadow-rgb), 0.055);
+  --empty-shadow: 0 8px 16px rgba(var(--shadow-rgb), 0.05);
+  --danger-bg: #fff1f2;
+  --danger-border: #fecdd3;
+  --danger-text: #9f1239;
+  --badge-neutral-bg: #edf2f7;
+  --badge-neutral-border: #c3d0df;
+  --badge-neutral-text: #445569;
+  --badge-info-bg: #e7efff;
+  --badge-info-border: #b4caf4;
+  --badge-info-text: #1f4fa8;
+  --badge-success-bg: #e8f7f0;
+  --badge-success-border: #a8dbc4;
+  --badge-success-text: #0f7a55;
+  --badge-warning-bg: #fff4dd;
+  --badge-warning-border: #e8cc8f;
+  --badge-warning-text: #a45a12;
+  --badge-danger-bg: #fff0f2;
+  --badge-danger-border: #f1bcc6;
+  --badge-danger-text: #b51f3e;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, var(--page-highlight) 0, transparent 36%),
+    linear-gradient(180deg, var(--background-elevated) 0%, var(--background) 18%, var(--background) 100%);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+a,
+button,
+input,
+select {
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--surface-tertiary);
+}
+
+.app-title {
+  color: var(--text-primary);
+}
+
+.app-text-secondary {
+  color: var(--text-secondary);
+}
+
+.app-text-muted {
+  color: var(--text-muted);
+}
+
+.app-text-subtle {
+  color: var(--text-subtle);
+}
+
+.app-panel {
+  background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--surface) 100%);
+  border: 1px solid var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    var(--panel-shadow);
+}
+
+.app-panel-soft {
+  background: linear-gradient(180deg, var(--surface-toolbar) 0%, var(--surface-tertiary) 100%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    var(--panel-soft-shadow);
+}
+
+.app-card {
+  background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface-tertiary) 100%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    var(--card-shadow);
+}
+
+.app-card-strong {
+  background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--surface-secondary) 100%);
+  border: 1px solid var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    var(--card-strong-shadow);
+}
+
+.app-chip {
+  background: var(--surface-ghost);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.app-input {
+  background: var(--input-background);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(var(--shadow-rgb), 0.04);
+}
+
+.app-input:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-secondary);
+}
+
+.app-input:focus {
+  outline: none;
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+.app-button-secondary {
+  background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface-tertiary) 100%);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    var(--button-shadow);
+}
+
+.app-button-secondary:hover {
+  background: linear-gradient(180deg, var(--surface-tertiary) 0%, var(--surface-elevated) 100%);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.app-link {
+  color: var(--link);
+  text-underline-offset: 0.25rem;
+  text-decoration-thickness: 1px;
+}
+
+.app-link:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.app-link-muted {
+  color: var(--text-muted);
+  text-underline-offset: 0.25rem;
+}
+
+.app-link-muted:hover {
+  color: var(--text-primary);
+}
+
+.app-focus-ring:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.app-table-wrap {
+  background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    var(--table-shadow);
+}
+
+.app-table thead tr {
+  border-bottom: 1px solid var(--divider);
+  background: var(--surface-table-header);
+}
+
+.app-table tbody tr {
+  border-bottom: 1px solid var(--divider);
+}
+
+.app-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.app-table-row {
+  transition: background-color 150ms ease;
+}
+
+.app-table-row:hover,
+.app-table-row:focus-within {
+  background: var(--row-hover);
+}
+
+.app-empty-state {
+  background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface-tertiary) 100%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    var(--empty-shadow);
+}
+
+.app-error-card {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-text);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 36px rgba(var(--shadow-rgb), 0.08);
+}
+
+.app-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-secondary) 0%,
+    var(--surface-tertiary) 50%,
+    var(--surface-secondary) 100%
+  );
+  background-size: 200% 100%;
+  border: 1px solid var(--border);
+  animation: app-pulse 1.4s ease-in-out infinite;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.34rem 0.78rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.status-badge--neutral {
+  background: var(--badge-neutral-bg);
+  border-color: var(--badge-neutral-border);
+  color: var(--badge-neutral-text);
+}
+
+.status-badge--info {
+  background: var(--badge-info-bg);
+  border-color: var(--badge-info-border);
+  color: var(--badge-info-text);
+}
+
+.status-badge--success {
+  background: var(--badge-success-bg);
+  border-color: var(--badge-success-border);
+  color: var(--badge-success-text);
+}
+
+.status-badge--warning {
+  background: var(--badge-warning-bg);
+  border-color: var(--badge-warning-border);
+  color: var(--badge-warning-text);
+}
+
+.status-badge--danger {
+  background: var(--badge-danger-bg);
+  border-color: var(--badge-danger-border);
+  color: var(--badge-danger-text);
+}
+
+@keyframes app-pulse {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
 }

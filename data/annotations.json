@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ANN-201",
+    "requirementId": "FR-SCAN-001",
+    "filePath": "src/lib/mock-data.ts",
+    "line": 11,
+    "type": "impl",
+    "snippet": "const filePath = path.join(process.cwd(), \"data\", fileName);",
+    "updatedAt": "2026-03-20T09:05:00.000Z"
+  },
+  {
+    "id": "ANN-202",
+    "requirementId": "FR-SCAN-001",
+    "filePath": "src/tests/api.test.ts",
+    "line": 49,
+    "type": "test",
+    "snippet": "const requirements = await listRequirements();",
+    "updatedAt": "2026-03-20T10:10:00.000Z"
+  },
+  {
+    "id": "ANN-203",
+    "requirementId": "FR-SCAN-002",
+    "filePath": "src/lib/mock-data.ts",
+    "line": 60,
+    "type": "impl",
+    "snippet": "annotations.filter((annotation) => annotation.requirementId === id)",
+    "updatedAt": "2026-03-20T13:05:00.000Z"
+  },
+  {
+    "id": "ANN-204",
+    "requirementId": "FR-SCAN-002",
+    "filePath": "src/tests/api.test.ts",
+    "line": 98,
+    "type": "test",
+    "snippet": "const annotations = await listAnnotations();",
+    "updatedAt": "2026-03-20T14:15:00.000Z"
+  },
+  {
+    "id": "ANN-205",
+    "requirementId": "FR-API-001",
+    "filePath": "src/lib/api.ts",
+    "line": 19,
+    "type": "impl",
+    "snippet": "export async function getStats(): Promise<Stats> {",
+    "updatedAt": "2026-03-21T09:15:00.000Z"
+  },
+  {
+    "id": "ANN-206",
+    "requirementId": "FR-API-001",
+    "filePath": "src/tests/summary-panel.test.tsx",
+    "line": 33,
+    "type": "test",
+    "snippet": "expect(screen.getByText(\"62.5%\")).toBeInTheDocument();",
+    "updatedAt": "2026-03-21T10:25:00.000Z"
+  },
+  {
+    "id": "ANN-207",
+    "requirementId": "FR-API-002",
+    "filePath": "src/lib/api.ts",
+    "line": 29,
+    "type": "impl",
+    "snippet": "export async function getRequirement(id: string): Promise<RequirementDetail | null> {",
+    "updatedAt": "2026-03-21T15:10:00.000Z"
+  },
+  {
+    "id": "ANN-208",
+    "requirementId": "FR-API-002",
+    "filePath": "src/tests/api.test.ts",
+    "line": 61,
+    "type": "test",
+    "snippet": "const requirement = await getRequirement(\"FR-API-002\");",
+    "updatedAt": "2026-03-21T16:00:00.000Z"
+  },
+  {
+    "id": "ANN-209",
+    "requirementId": "FR-API-003",
+    "filePath": "src/lib/api.ts",
+    "line": 37,
+    "type": "impl",
+    "snippet": "export async function listTasks(): Promise<Task[]> {",
+    "updatedAt": "2026-03-22T09:00:00.000Z"
+  },
+  {
+    "id": "ANN-210",
+    "requirementId": "FR-API-003",
+    "filePath": "src/tests/api.test.ts",
+    "line": 86,
+    "type": "test",
+    "snippet": "const tasks = await listTasks();",
+    "updatedAt": "2026-03-22T09:30:00.000Z"
+  },
+  {
+    "id": "ANN-211",
+    "requirementId": "AR-PERF-001",
+    "filePath": "src/app/page.tsx",
+    "line": 27,
+    "type": "impl",
+    "snippet": "const [statsResult, requirementsResult, tasksResult, annotationsResult, scanStatusResult] = await Promise.allSettled([",
+    "updatedAt": "2026-03-23T08:00:00.000Z"
+  },
+  {
+    "id": "ANN-212",
+    "requirementId": "AR-PERF-001",
+    "filePath": "src/components/summary-panel.tsx",
+    "line": 82,
+    "type": "impl",
+    "snippet": "style={{ width: `${percent}%`, backgroundColor: toneColor }}",
+    "updatedAt": "2026-03-23T08:25:00.000Z"
+  },
+  {
+    "id": "ANN-213",
+    "requirementId": "AR-SEC-001",
+    "filePath": "src/components/requirement-detail.tsx",
+    "line": 152,
+    "type": "impl",
+    "snippet": "<pre className=\"app-panel-soft overflow-x-auto rounded-xl p-3 text-xs leading-5\">",
+    "updatedAt": "2026-03-23T11:40:00.000Z"
+  },
+  {
+    "id": "ANN-214",
+    "requirementId": "AR-SEC-001",
+    "filePath": "src/components/orphan-panel.tsx",
+    "line": 74,
+    "type": "impl",
+    "snippet": "<code className=\"app-text-secondary whitespace-pre-wrap\">{annotation.snippet}</code>",
+    "updatedAt": "2026-03-23T12:05:00.000Z"
+  },
+  {
+    "id": "ANN-215",
+    "requirementId": null,
+    "filePath": "legacy/trace-map.csv",
+    "line": 14,
+    "type": "impl",
+    "snippet": "FR-LEGACY-002,,missing owner",
+    "updatedAt": "2026-03-24T05:10:00.000Z"
+  },
+  {
+    "id": "ANN-216",
+    "requirementId": null,
+    "filePath": "tmp/manual-checklist.md",
+    "line": 8,
+    "type": "test",
+    "snippet": "- confirm archived scan outputs are ignored",
+    "updatedAt": "2026-03-24T05:35:00.000Z"
+  }
+]

@@ -1,0 +1,41 @@
+requirements:
+  - id: FR-SCAN-001
+    type: FR
+    title: Parse requirements from the source YAML file
+    description: Normalize source requirement records for dashboard use.
+    status: covered
+  - id: FR-SCAN-002
+    type: FR
+    title: Extract implementation and test annotations from repository files
+    description: Collect evidence from local files and link it to requirements.
+    status: covered
+  - id: FR-API-001
+    type: FR
+    title: Expose summary coverage metrics for the dashboard
+    description: Return coverage percentages, orphan counts, and scan timestamps.
+    status: covered
+  - id: FR-API-002
+    type: FR
+    title: Expose requirement list and detail payloads
+    description: Return requirement data with linked annotations and tasks.
+    status: covered
+  - id: FR-API-003
+    type: FR
+    title: Expose tasks and orphan traceability datasets
+    description: Return work items and orphan records for the dashboard panels.
+    status: covered
+  - id: AR-PERF-001
+    type: AR
+    title: Keep dashboard load time within the mock performance budget
+    description: Avoid unnecessary client churn when rendering dashboard data.
+    status: partial
+  - id: AR-SEC-001
+    type: AR
+    title: Sanitize rendered snippets and avoid leaking sensitive paths
+    description: Keep evidence snippets safe to display in the UI.
+    status: partial
+  - id: FR-REPORT-001
+    type: FR
+    title: Export an orphan traceability report
+    description: Provide an export-ready orphan report for assignment review.
+    status: missing
